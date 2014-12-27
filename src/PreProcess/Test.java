@@ -10,6 +10,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import Classify.Tokenize;
+
 public class Test {
 
     /**
@@ -22,6 +24,11 @@ public class Test {
     	data.loadIn(negativeData);
 
     	System.out.println(data.getId2Text().size());
+    	
+    	System.out.println(data.getId2Text().get(0));
+    	
+    	Tokenize tokenize = new Tokenize(data.getId2Text().get(0));
+    	System.out.println(tokenize.tokenize().toString());
     }
 
 }
