@@ -10,3 +10,8 @@
 * Other rescoures: NLTK, jieba, SVM, 
 * input->runCoreNLP->eval
 * Keywords: sentiment classification
+* Dataset: 
+	* [JHU](http://www.cs.jhu.edu/~mdredze/datasets/sentiment/)
+	* [paper1](http://pdf.aminer.org/000/021/087/seeing_stars_exploiting_class_relationships_for_sentiment_categorization_with_respect.pdf)
+	* [paper2 Unsupervised](http://ucrel.lancs.ac.uk/acl/P/P02/P02-1053.pdf)
+	* [paper3 ML](http://delivery.acm.org/10.1145/1120000/1118704/p79-pang.pdf?ip=192.241.216.87&id=1118704&acc=OPEN&key=4D4702B0C3E38B35%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35%2E6D218144511F3437&CFID=459050988&CFTOKEN=34888847&__acm__=1419672385_48ef6afc37ff67e3a50cb03a8b51edeb)
