@@ -54,9 +54,27 @@ public class Data {
 		// System.out.println(list.toString());
 		for (Map<String, String> ele : list) {
 			id2Text.put(Integer.parseInt(ele.get("id")), ele.get("review"));
+//			if (text2Id.containsKey(ele.get("review"))){
+//				System.out.println(ele.get("review")+" "+ele.get("id"));
+//			}
 			text2Id.put(ele.get("review"), Integer.parseInt(ele.get("id")));
 			idList.add(Integer.parseInt(ele.get("id")));
 		}
 	}
 
+	public Data clone(){
+		Data re = new Data();
+		re.id2Text = (HashMap<Integer, String>) this.id2Text.clone();
+		re.text2Id = (HashMap<String, Integer>) this.text2Id.clone();
+		re.idList = new ArrayList<Integer>(this.idList);
+		return re;
+	}
+	
+	public Data combine(Data tar){
+		Data re = this.clone();
+		re.id2Text.putAll(tar.getId2Text());
+		re.text2Id.putAll(tar.text2Id);
+		re.idList.addAll(tar.getIdList());
+		return re;
+	}
 }

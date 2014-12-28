@@ -19,28 +19,22 @@ public class Test {
 	 */
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		String negativeData = "/Users/jinyi/Documents/College/Course/IE/Data/evaltask2_sample_data/en_sample_data/sample.positive.txt";
-		Data data = new Data();
-		data.loadIn(negativeData);
+		String positiveData = "/Users/jinyi/Documents/College/Course/IE/Data/evaltask2_sample_data/en_sample_data/sample.positive.txt";
+		String negativeData = "/Users/jinyi/Documents/College/Course/IE/Data/evaltask2_sample_data/en_sample_data/sample.negative.txt";
+		Data dataPo = new Data();
+		dataPo.loadIn(positiveData);
+		Data dataNe = new Data();
+		dataNe.loadIn(negativeData);
 
-		System.out.println(data.getId2Text().size());
-		System.out.println(data.getIdList().size());
-
-		System.out.println(data.getId2Text().get(0));
-
+		Data data = dataPo.combine(dataNe);
+		
+		System.out.println(dataPo.getId2Text().size()+" "+dataPo.getIdList().size()+" "+dataPo.getText2Id().size());
+		System.out.println(dataNe.getId2Text().size()+" "+dataNe.getIdList().size()+" "+dataNe.getText2Id().size());
+		System.out.println(data.getId2Text().size()+" "+data.getIdList().size()+" "+data.getText2Id().size());	
+		
+		System.out.println(data.getId2Text().get(112));
 		// Tokenize tokenize = new Tokenize(data.getId2Text().get(0));
 		// System.out.println(tokenize.tokenize().toString());
-		String str = null;
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		str = br.readLine();
-		while (str != null) {
-			DependencyParse dp = new DependencyParse(str);
-			System.out.println(dp.negParse());
-			str = br.readLine();
-//			Negation neg = new Negation(str);
-//			neg.changeNegation();
-//			str = br.readLine();
-		}
 
 	}
 
