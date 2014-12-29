@@ -32,12 +32,13 @@ public class Test {
 		System.out.println(dataPo.getId2Text().size()+" "+dataPo.getIdList().size()+" "+dataPo.getText2Id().size());
 		System.out.println(dataNe.getId2Text().size()+" "+dataNe.getIdList().size()+" "+dataNe.getText2Id().size());
 		System.out.println(data.getId2Text().size()+" "+data.getIdList().size()+" "+data.getText2Id().size());	
-		
-		Data dataSample = data.sample(0.9).get(0);
-		Data dataRemain = data.sample(0.9).get(1);
-		System.out.println(dataSample.getId2Text().size()+" "+dataSample.getIdList().get(0));
-		System.out.println(dataRemain.getId2Text().size()+" "+dataRemain.getIdList().get(0));
-		System.out.println(dataSample.combine(dataRemain).getId2Text().size());
+//		System.out.println(data.getIdList());
+//		System.out.println(dataPo.getId2Text());
+//		Data dataSample = data.sample(0.9).get(0);
+//		Data dataRemain = data.sample(0.9).get(1);
+//		System.out.println(dataSample.getId2Text().size()+" "+dataSample.getIdList().get(0));
+//		System.out.println(dataRemain.getId2Text().size()+" "+dataRemain.getIdList().get(0));
+//		System.out.println(dataSample.combine(dataRemain).getId2Text().size());
 		
 		// Tokenize tokenize = new Tokenize(data.getId2Text().get(0));
 		// System.out.println(tokenize.tokenize().toString());

@@ -74,7 +74,15 @@ public class Data {
 		Data re = this.clone();
 		re.id2Text.putAll(tar.getId2Text());
 		re.text2Id.putAll(tar.text2Id);
-		re.idList.addAll(tar.getIdList());
+		for (int id:tar.getIdList()){
+			if (!re.idList.contains(id)){
+				re.idList.add(id);
+			}
+		}
+//		re.idList.addAll(tar.getIdList());
+		if (re.id2Text.size() != re.idList.size()){
+			System.out.println("error");
+		}
 		return re;
 	}
 	

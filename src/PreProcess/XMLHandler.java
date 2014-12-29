@@ -15,7 +15,6 @@ public class XMLHandler extends DefaultHandler {
 	String currentTag = null;
 	String currentValue = null;
 	String nodeName = null;
-	boolean flag = false;
 	private StringBuffer buf;
 
 	public XMLHandler(String nodeName) {
@@ -43,9 +42,6 @@ public class XMLHandler extends DefaultHandler {
 			for (int i = 0; i < attributes.getLength(); i++) {
 				map.put(attributes.getQName(i), attributes.getValue(i));
 				// System.out.println(attributes.getQName(i));
-				if (map.get("id").equals("112")) {
-					flag = true;
-				}
 			}
 		}
 		currentTag = qName;
@@ -54,18 +50,15 @@ public class XMLHandler extends DefaultHandler {
 	@Override
 	public void characters(char[] ch, int start, int length)
 			throws SAXException {
-		if (currentTag != null && map != null) {
-			currentValue = new String(ch, start, length);
-			if (flag) {
-				System.out.println(currentValue);
-			}
-			if (currentValue != null && !currentValue.trim().equals("")) {
-				map.put(currentTag, currentValue);
-				// System.out.println("**check**"+currentValue);
-			}
-			currentTag = null;
-			currentValue = null;
-		}
+//		if (currentTag != null && map != null) {
+//			currentValue = new String(ch, start, length);
+//			if (currentValue != null && !currentValue.trim().equals("")) {
+//				map.put(currentTag, currentValue);
+//				// System.out.println("**check**"+currentValue);
+//			}
+//			currentTag = null;
+//			currentValue = null;
+//		}
 		buf.append(ch, start, length);
 	}
 
@@ -73,18 +66,12 @@ public class XMLHandler extends DefaultHandler {
 	public void endElement(String uri, String localName, String qName)
 			throws SAXException {
 		if (qName.equals(nodeName)) {
+			map.put(qName, buf.toString().trim());
 			list.add(map);
-			if (flag) {
-				System.out.println(map);
-				flag = false;
-			}
+//			System.out.println(map);
 			map = null;
 		}
-		if (!buf.toString().trim().equals("")) {
-			if (flag) {
-				System.out.println(buf.toString().trim());
-			}
-		}
+//		System.out.println(buf.toString().trim());
 		buf.setLength(0);
 	}
 
