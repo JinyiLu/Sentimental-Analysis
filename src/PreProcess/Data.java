@@ -105,4 +105,25 @@ public class Data {
 		}
 		return re;
 	}
+	
+	public ArrayList<Data> sampleSeq(double percent){
+		ArrayList<Data> re = new ArrayList<Data>();
+		re.add(new Data());
+		re.add(new Data());
+		int count = 0;
+		for (int id:this.idList){
+			Data dataTmp;
+			if (count<=percent*this.idList.size()){
+				dataTmp = re.get(0);
+			}
+			else{
+				dataTmp = re.get(1);
+			}
+			dataTmp.getId2Text().put(id, this.id2Text.get(id));
+			dataTmp.getText2Id().put(this.id2Text.get(id), id);
+			dataTmp.getIdList().add(id);
+			count++;
+		}
+		return re;
+	}
 }

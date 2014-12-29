@@ -15,6 +15,7 @@ import edu.stanford.nlp.util.*;
 
 public class DependencyParse {
 	private String str;
+	private static StanfordCoreNLP pipeline = new StanfordCoreNLP();
 
 	public DependencyParse(String str) {
 		this.str = str;
@@ -23,7 +24,7 @@ public class DependencyParse {
 	public List<String> negParse() {
 		PrintWriter out = new PrintWriter(System.out);
 
-		StanfordCoreNLP pipeline = new StanfordCoreNLP();
+//		StanfordCoreNLP pipeline = new StanfordCoreNLP();
 		Annotation annotation = new Annotation(this.str);
 
 		pipeline.annotate(annotation);
