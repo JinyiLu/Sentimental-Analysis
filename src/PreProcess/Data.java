@@ -77,4 +77,24 @@ public class Data {
 		re.idList.addAll(tar.getIdList());
 		return re;
 	}
+	
+	public ArrayList<Data> sample(double percent){
+		ArrayList<Data> re = new ArrayList<Data>();
+		Random random = new Random(0);
+		re.add(new Data());
+		re.add(new Data());
+		for (int id:this.idList){
+			Data dataTmp;
+			if (random.nextFloat()<=percent){
+				dataTmp = re.get(0);
+			}
+			else{
+				dataTmp = re.get(1);
+			}
+			dataTmp.getId2Text().put(id, this.id2Text.get(id));
+			dataTmp.getText2Id().put(this.id2Text.get(id), id);
+			dataTmp.getIdList().add(id);
+		}
+		return re;
+	}
 }

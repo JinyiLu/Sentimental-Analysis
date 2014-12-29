@@ -19,8 +19,9 @@ public class Test {
 	 */
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		String positiveData = "/Users/jinyi/Documents/College/Course/IE/Data/evaltask2_sample_data/en_sample_data/sample.positive.txt";
-		String negativeData = "/Users/jinyi/Documents/College/Course/IE/Data/evaltask2_sample_data/en_sample_data/sample.negative.txt";
+		String path = "E:\\Jinyi\\Project\\SA\\Data\\evaltask2_sample_data\\en_sample_data\\";
+		String positiveData = path+"sample.positive.txt";
+		String negativeData = path+"sample.negative.txt";
 		Data dataPo = new Data();
 		dataPo.loadIn(positiveData);
 		Data dataNe = new Data();
@@ -32,7 +33,12 @@ public class Test {
 		System.out.println(dataNe.getId2Text().size()+" "+dataNe.getIdList().size()+" "+dataNe.getText2Id().size());
 		System.out.println(data.getId2Text().size()+" "+data.getIdList().size()+" "+data.getText2Id().size());	
 		
-		System.out.println(data.getId2Text().get(112));
+		Data dataSample = data.sample(0.9).get(0);
+		Data dataRemain = data.sample(0.9).get(1);
+		System.out.println(dataSample.getId2Text().size()+" "+dataSample.getIdList().get(0));
+		System.out.println(dataRemain.getId2Text().size()+" "+dataRemain.getIdList().get(0));
+		System.out.println(dataSample.combine(dataRemain).getId2Text().size());
+		
 		// Tokenize tokenize = new Tokenize(data.getId2Text().get(0));
 		// System.out.println(tokenize.tokenize().toString());
 
