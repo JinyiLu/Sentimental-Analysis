@@ -18,6 +18,23 @@ public class Unigram {
 //		textWordFreq = new HashMap<Integer, HashMap<String, Integer>>();
 	}
 	
+	public HashMap<String, Integer> calSenFrequency(String sentence) throws Exception{
+		HashMap<String, Integer> senFre = new HashMap<String, Integer>();
+		
+		DependencyParse dp = new DependencyParse(sentence);
+		List<String> words = dp.negParse();
+		for (String word:words){
+			if (senFre.containsKey(word)){
+				senFre.put(word, senFre.get(word)+1);
+			}
+			else{
+				senFre.put(word, 1);
+			}
+		}
+		
+		return senFre;
+	}
+	
 	public void calFrequency(Data data, String tf, String wf) throws Exception{
 		OutputStreamWriter writerTF = new OutputStreamWriter(
 				new FileOutputStream(tf), "UTF-8");

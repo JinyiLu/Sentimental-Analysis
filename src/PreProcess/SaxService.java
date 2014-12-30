@@ -15,7 +15,7 @@ public class SaxService {
         try {
             SAXParserFactory parserFactory=SAXParserFactory.newInstance();
             SAXParser parser=parserFactory.newSAXParser();
-            XMLHandler myhandler=new XMLHandler("review");
+            XMLHandler myhandler=new XMLHandler("weibo");
             parser.parse(uri, myhandler);
             return myhandler.getList();
         } catch (Exception e) {

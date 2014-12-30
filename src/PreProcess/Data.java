@@ -49,15 +49,15 @@ public class Data {
 		//
 		// }
 		ArrayList<Map<String, String>> list = (ArrayList<Map<String, String>>) SaxService
-				.ReadXML(filePath, "doc");
+				.ReadXML(filePath, "weibos");
 
 		// System.out.println(list.toString());
 		for (Map<String, String> ele : list) {
-			id2Text.put(Integer.parseInt(ele.get("id")), ele.get("review"));
+			id2Text.put(Integer.parseInt(ele.get("id")), ele.get("weibo"));
 //			if (text2Id.containsKey(ele.get("review"))){
 //				System.out.println(ele.get("review")+" "+ele.get("id"));
 //			}
-			text2Id.put(ele.get("review"), Integer.parseInt(ele.get("id")));
+			text2Id.put(ele.get("weibo"), Integer.parseInt(ele.get("id")));
 			idList.add(Integer.parseInt(ele.get("id")));
 		}
 	}
