@@ -1,4 +1,4 @@
-package Classify;
+package Weka;
 
 import java.util.*;
 import java.io.*;

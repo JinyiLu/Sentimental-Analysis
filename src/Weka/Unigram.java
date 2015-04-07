@@ -1,4 +1,4 @@
-package Classify;
+package Weka;
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
